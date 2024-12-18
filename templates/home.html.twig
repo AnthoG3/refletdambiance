@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block metatitle %}
+    Accueil | Reflet d'ambiance
+{% endblock metatitle %}
+
+{% block body %}
+    <div class="position-relative container">
+        <img class="img-fluid container" src="{{ asset('assets/image/fond_accueil.jpg') }}" alt="logo.accueil">
+        <h2 class="position-absolute rounded-circle d-flex align-items-center" id="round_title">Reflet d'ambiance</h2>
+    </div>
+            <div id="card" >
+                <div id="insert_card">
+                    <img id="image_admin" class="rounded-circle" src="{{ asset('assets/image/oceane.jpg') }}" alt="oceane">
+                </div>
+                <div style="flex: 1; padding-left: 20px;">
+                    <h2 class="mb-4" id="presentation">Présentation</h2>
+                    <p class="lead">
+                        Je suis Océane VITRAC-MULLER, décoratrice d'intérieur spécialisée dans la création d'intérieur en 3D.<br>
+                        Vous achetez sur plan Vous faites construire ou vous avez simplement envie de changer la décoration de votre intérieur <br>
+                        De la planche d'ambiance à l'agencement, en passant par la shopping list, je suis là pour vous aider à vous projeter, à mettre en valeur votre bien.
+                    </p>
+                </div>
+            </div>
+
+
+    <h1>Formulaire de contact</h1>
+{% endblock %}

@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#presentation{
+  font-family: "Dancing Script", serif;
+}
+
+#round_title{
+  font-family: "Dancing Script", serif;
+  width: 25%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -50%);
+  background-color: rgba(240,237,228,0.75);
+  font-size:4em;
+  text-align:center;
+}
+
+#card{
+  display: flex;
+  align-items: center;
+  background-color:#f0ede4;
+  border-radius:25px;
+  padding: 20px;
+  margin:20px;
+}
+#image_admin{
+  width: 100%;
+  height: 90%;
+}
+
+#insert_card{
+  flex: 0 0 30%;
+}
