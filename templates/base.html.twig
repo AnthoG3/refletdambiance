@@ -19,6 +19,22 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/image/logo.reflet.png') }}"/>
+
+    <style>
+        .search-form {
+            display: flex;
+            align-items: stretch;
+        }
+        .search-input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .btn-sm {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            margin-left: -1px;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,22 +58,22 @@
                     <li class="nav-item"><a class="nav-link" href="{{ path('app_formule') }}">Formules</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('app_user') }}">Connexion</a></li>
                     <li class="nav-item">
-                        <a href="https://www.instagram.com/refletdambiance?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-                            <img id="logo_nav" src="{{ asset('assets/image/instagram.png') }}" alt="instagram">
+                        <a href="https://www.instagram.com/votre_compte_instagram" target="_blank" class="nav-link">
+                            <img class="nav-icon" src="{{ asset('assets/image/instagram.png') }}" alt="instagram" aria-hidden="true">
+                            <span class="visually-hidden">Instagram</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://www.facebook.com/votre_page_facebook" target="_blank">
-                            <img id="logo_nav" src="{{ asset('assets/image/facebook.png') }}" alt="facebook">
+                        <a href="https://www.facebook.com/votre_page_facebook" target="_blank" class="nav-link">
+                            <img class="nav-icon" src="{{ asset('assets/image/facebook.png') }}" alt="facebook" aria-hidden="true">
+                            <span class="visually-hidden">Facebook</span>
                         </a>
                     </li>
-
                 </ul>
-
                 <!-- Search Form -->
                 <form class="d-flex" method="get" action="">
-                    <input class="form-control me-2" type="search" name="search" placeholder="Rechercher..." aria-label="Rechercher" value="{{ app.request.query.get('search') }}">
-                    <button class="btn btn-outline-dark" type="submit">Rechercher</button>
+                    <input class="form-control search-input" type="search" name="search" placeholder="Rechercher..." aria-label="Rechercher" value="{{ app.request.query.get('search') }}">
+                    <button class="btn btn-outline-light" type="submit">Rechercher</button>
                 </form>
             </div>
         </div>

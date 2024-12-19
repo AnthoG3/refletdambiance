@@ -1,41 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block metatitle %} Accueil | Reflet d'ambiance {% endblock metatitle %}
+{% block metatitle %}Accueil | Reflet d'ambiance{% endblock metatitle %}
+
 {% block body %}
-    <div class="position-relative container">
-        <img class="img-fluid background-image" src="{{ asset('assets/image/fond_accueil.jpg') }}" alt="logo.accueil">
-        <h2 class="position-absolute rounded-circle d-flex align-items-center" id="round_title">Reflet d'ambiance</h2>
+    <div class="container">
+        <img class="background-image" src="{{ asset('assets/image/fond_accueil.jpg') }}" alt="logo.accueil">
+        <h2 id="round_title">Reflet d'ambiance</h2>
     </div>
 
     <div class="container">
-        <div class="card mb-4">
+        <div class="card presentation-card">
             <div class="image-container">
-                <img class="image-ronde" src="{{ asset("assets/image/oceane.jpg") }}" alt="oceane">
+                <img class="image-ronde" src="{{ asset('assets/image/oceane.jpg') }}" alt="Océane">
             </div>
             <div class="text-container">
                 <h2 class="card-title">Présentation</h2>
                 <p>
                     Je suis Océane VITRAC-MULLER,<br>
-                    décoratrice d'intérieur spécialisée dans la création d'intérieur en 3D.<br>
-                    Vous achetez sur plan ? Vous faites construire ou vous avez <br>
-                    tout simplement envie de changer la décoration de votre intérieur ?<br>
-                    De la planche d'ambiance à l'agencement, en passant par la shopping list,<br>
-                    je suis là pour vous aider à vous projeter, à mettre en valeur votre bien.
+                    décoratrice d'intérieur spécialisée dans la création d'intérieur en 3D.
+                    Vous achetez sur plan ? Vous faites construire ou vous avez tout simplement envie de changer la décoration de votre intérieur ?
+                    De la planche d'ambiance à l'agencement, en passant par la shopping list, je suis là pour vous aider à vous projeter, à mettre en valeur votre bien.
                 </p>
             </div>
         </div>
+    </div>
 
-        <div class="card">
+
+    <div class="card contact-card">
             <div class="card-body">
-                <h2 class="card-title">Formulaire de contact</h2>
-                {% if contactForm is defined %}
-                    {{ form_start(contactForm) }}
-                    {{ form_widget(contactForm) }}
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
-                    {{ form_end(contactForm) }}
-                {% else %}
-                    <p>Le formulaire de contact n'est pas disponible pour le moment.</p>
-                {% endif %}
+                <div class="container">
+                    {% for message in app.flashes('success') %}
+                        <div role='alert' class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    <div class="row">
+                            <h1 class="text-center">Formulaire de contact</h1>
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            <button type="submit" class="btn d-block mx-auto">Envoyer</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

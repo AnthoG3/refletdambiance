@@ -16,10 +16,6 @@
   border-radius: 25px;
 }
 
-.card-title {
-  font-family: "Dancing Script", serif;
-}
-
 #round_title {
   position: absolute;
   left: 10%;
@@ -30,6 +26,13 @@
   border-radius: 50%;
   font-size: clamp(2rem, 4vw, 4rem);
   text-align: center;
+  font-family: "Dancing Script", serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact_title {
   font-family: "Dancing Script", serif;
 }
 
@@ -42,16 +45,23 @@
   background-color: #f0ede4;
   border-radius: 25px;
   margin-top: 2em;
+  padding: 20px;
 }
 
-.nav-link {
-  font-family: "Dancing Script", serif;
-  font-size: 1.5em;
-  margin-left: 2em;
+.presentation-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #f0ede4;
+  border-radius: 25px;
+  margin-top: 2em;
+  padding: 20px;
+  font-family: "Inria Sans", serif;
 }
 
 .image-container {
-  margin-right: calc(2vw + 10px);
+  flex: 0 0 auto;
+  margin-right: 20px;
 }
 
 .image-ronde {
@@ -60,67 +70,85 @@
   border-radius: 50%;
 }
 
+.text-container {
+  flex: 1;
+}
+
 .text-container h2 {
   margin: 0;
 }
 
 .text-container p {
-  margin: calc(1em + 0.5vw) auto;
+  margin: 1em 0;
 }
 
-#logo_nav {
-  width: auto;
-  height: 1.5em;
-  margin-left: 2em;
-  margin-right: 2em;
-  margin-top: 1em;
+.contact-card {
+  margin-top: 2em;
 }
 
-/* Styles pour le formulaire de contact */
-.wrapper {
-  max-width: 600px;
-  margin: 2em auto;
+.contact-card .card-body {
   padding: 20px;
-  background-color: #f0ede4;
-  border-radius: 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper form {
-  display: flex;
-  flex-direction: column;
-}
-
-.wrapper .form-control {
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.wrapper button[type=submit] {
-  align-self: flex-start;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: "Dancing Script", serif;
-  font-size: 1.2em;
-}
-
-h1 {
+.contact-card h1 {
   text-align: center;
   margin-bottom: 30px;
   color: #333;
   font-family: "Dancing Script", serif;
 }
 
-form label {
-  font-weight: bold;
+.card-title {
+  font-family: "Dancing Script", serif;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
   margin-bottom: 5px;
-  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-family: "Inria Sans", serif;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: "Inria Sans", serif;
+}
+
+.form-group textarea {
+  height: 100px;
+}
+
+button[type=submit] {
+  padding: 10px 20px;
+  background-color: #f0ede4;
+  color: #040705;
+  border-color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Dancing Script", serif;
+  font-size: 1.2em;
+  display: block;
+  margin-top: 0.5em;
+  width: fit-content;
+  transition: background-color 0.3s, color 0.3s;
+  align-items: center;
+}
+
+button[type=submit]:hover {
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  font-family: "Dancing Script", serif;
 }
 
 .form-error {
@@ -129,18 +157,46 @@ form label {
   margin-top: 5px;
 }
 
+/* Navigation Bar Styles */
+.navbar-nav {
+  align-items: center;
+  display: flex;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px;
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: "Dancing Script", serif;
+  font-size: 1.5em;
+}
+
+.nav-icon {
+  height: 1em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0.3em;
+}
+
 /* Media Queries */
-@media (max-width: 768px) {
-  #logo_nav {
-    height: 1.2em;
-  }
-}
-@media (max-width: 576px) {
-  #logo_nav {
-    height: 1em;
-  }
-}
 @media (max-width: 800px) {
+  .presentation-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .image-container {
+    margin-right: 0;
+    margin-bottom: 1em;
+    align-self: center;
+  }
   #round_title {
     font-size: clamp(1.5rem, 5vw, 2.5rem);
     padding: calc(10px + 0.5vw);
@@ -151,12 +207,51 @@ form label {
     flex-direction: column;
     align-items: flex-start;
   }
-  .image-container {
-    margin-right: 0;
-    margin-bottom: calc(20px + 0.5vw);
+}
+@media (max-width: 768px) {
+  .nav-icon {
+    height: 0.8em;
   }
-  .wrapper {
-    width: 90%;
+  .search-form {
+    max-width: 100%;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-container {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .nav-icon {
+    height: 0.8em;
+  }
+}
+.form-control[type=search] {
+  width: 200px;
+  height: 3em;
+  margin-top: 0.8em;
+  margin-right: 1.5em;
+  transition: width 0.3s ease-in-out;
+}
+
+.btn-outline-light {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .form-control[type=search] {
+    width: 150px;
+  }
+}
+@media (max-width: 576px) {
+  .form-control[type=search] {
+    width: 120px;
+  }
+  .btn-outline-light {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
   }
 }
 
