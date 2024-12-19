@@ -4,38 +4,160 @@
   box-sizing: border-box;
 }
 
-#presentation {
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.background-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 25px;
+}
+
+.card-title {
   font-family: "Dancing Script", serif;
 }
 
 #round_title {
-  font-family: "Dancing Script", serif;
+  position: absolute;
+  left: 10%;
+  top: 25%;
+  background-color: rgba(240, 237, 228, 0.71);
   width: 25%;
   height: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-150%, -50%);
-  background-color: rgba(240, 237, 228, 0.75);
-  font-size: 4em;
+  border-radius: 50%;
+  font-size: clamp(2rem, 4vw, 4rem);
   text-align: center;
+  font-family: "Dancing Script", serif;
 }
 
-#card {
+.card {
+  width: 100%;
+  height: auto;
   display: flex;
+  flex-direction: row;
   align-items: center;
   background-color: #f0ede4;
   border-radius: 25px;
+  margin-top: 2em;
+}
+
+.nav-link {
+  font-family: "Dancing Script", serif;
+  font-size: 1.5em;
+  margin-left: 2em;
+}
+
+.image-container {
+  margin-right: calc(2vw + 10px);
+}
+
+.image-ronde {
+  width: clamp(100px, 20vw, 150px);
+  height: clamp(100px, 20vw, 150px);
+  border-radius: 50%;
+}
+
+.text-container h2 {
+  margin: 0;
+}
+
+.text-container p {
+  margin: calc(1em + 0.5vw) auto;
+}
+
+#logo_nav {
+  width: auto;
+  height: 1.5em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 1em;
+}
+
+/* Styles pour le formulaire de contact */
+.wrapper {
+  max-width: 600px;
+  margin: 2em auto;
   padding: 20px;
-  margin: 20px;
+  background-color: #f0ede4;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#image_admin {
-  width: 100%;
-  height: 90%;
+.wrapper form {
+  display: flex;
+  flex-direction: column;
 }
 
-#insert_card {
-  flex: 0 0 30%;
+.wrapper .form-control {
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.wrapper button[type=submit] {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Dancing Script", serif;
+  font-size: 1.2em;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-family: "Dancing Script", serif;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.form-error {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #logo_nav {
+    height: 1.2em;
+  }
+}
+@media (max-width: 576px) {
+  #logo_nav {
+    height: 1em;
+  }
+}
+@media (max-width: 800px) {
+  #round_title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    padding: calc(10px + 0.5vw);
+    left: 37.5%;
+    top: 10%;
+  }
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .image-container {
+    margin-right: 0;
+    margin-bottom: calc(20px + 0.5vw);
+  }
+  .wrapper {
+    width: 90%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

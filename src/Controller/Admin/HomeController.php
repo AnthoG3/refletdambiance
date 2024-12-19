@@ -4,21 +4,32 @@ namespace App\Controller\Admin;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+    private ContactController $contactController;
+    private EntityManagerInterface $entityManager;
+
+    public function __construct(ContactController $contactController, EntityManagerInterface $entityManager)
+    {
+        $this->contactController = $contactController;
+        $this->entityManager = $entityManager;
+    }
+
     #[Route('/', name: 'home')]
     public function index(Request $request): Response
     {
+        $contactFormData = $this->contactController->createContactForm($request, $this->entityManager);
 
-        $form = $this -> createForm(FormType::class);
+        if (isset($contactFormData['success'])) {
+            return $this->redirectToRoute('home');
+        }
 
         return $this->render('home.html.twig', [
-            'form' => $form->createView(),
+            'contactForm' => $contactFormData['form']->createView(),
         ]);
     }
 }
