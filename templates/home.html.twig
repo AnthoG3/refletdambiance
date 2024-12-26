@@ -1,10 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block metatitle %}Accueil | Reflet d'ambiance{% endblock metatitle %}
-
 {% block body %}
     <div class="container">
-        <img class="background-image" src="{{ asset('assets/image/fond_accueil.jpg') }}" alt="logo.accueil">
+        <img class="home_wall" src="{{ asset('assets/image/fond_accueil.jpg') }}" alt="logo.accueil">
         <h2 id="round_title">Reflet d'ambiance</h2>
     </div>
 
@@ -17,30 +15,76 @@
                 <h2 class="card-title">Présentation</h2>
                 <p>
                     Je suis Océane VITRAC-MULLER,<br>
-                    décoratrice d'intérieur spécialisée dans la création d'intérieur en 3D.
-                    Vous achetez sur plan ? Vous faites construire ou vous avez tout simplement envie de changer la décoration de votre intérieur ?
+                    décoratrice d'intérieur spécialisée dans la création d'intérieur en 3D.<br>
+                    Vous achetez sur plan ?
+                    Vous faites construire ou vous avez tout simplement envie de changer la décoration de votre intérieur ?<br>
                     De la planche d'ambiance à l'agencement, en passant par la shopping list, je suis là pour vous aider à vous projeter, à mettre en valeur votre bien.
                 </p>
             </div>
         </div>
     </div>
 
-
     <div class="card contact-card">
-            <div class="card-body">
-                <div class="container">
-                    {% for message in app.flashes('success') %}
-                        <div role='alert' class="alert alert-success">
+        <div class="card-body">
+            <div class="container">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label == 'error' ? 'danger' : label }} alert-dismissible fade show" role="alert">
                             {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     {% endfor %}
-                    <div class="row">
-                            <h1 class="text-center">Formulaire de contact</h1>
-                            {{ form_start(form) }}
-                            {{ form_widget(form) }}
-                            <button type="submit" class="btn d-block mx-auto">Envoyer</button>
-                            {{ form_end(form) }}
+                {% endfor %}
+                <div class="row">
+                    <h1 class="text-center" id="contact">Formulaire de contact</h1>
+                    <div class="col">
+                        {{ form_start(form) }}
+
+                        <div class="form-group">
+                            {{ form_label(form.name, 'Prénom et nom :') }}
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
                         </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.email, 'Email :') }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.pieces, 'Nombre de pièces :') }}
+                            {{ form_widget(form.pieces, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.m2, 'Nombre de m² :') }}
+                            {{ form_widget(form.m2, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.habitation, 'Type d\'habitation :') }}
+                            {{ form_widget(form.habitation, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.foyer, 'Vous êtes : ') }}
+                            {{ form_widget(form.foyer, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.styles, 'Quelle(s) ambiance(s) souhaitez-vous :') }}
+                            {{ form_widget(form.styles, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.message, 'Description de votre projet :') }}
+                            {{ form_widget(form.message, {'attr': {'class': 'form-control', 'rows': 4}}) }}
+                        </div>
+
+                        {{ form_errors(form) }}
+
+                        <button type="submit" class="btn btn-primary d-block mx-auto mt-3">Envoyer</button>
+
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>

@@ -3,3 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+admin_login:
+    path: /admin/login
+    controller: App\Controller\Admin\AdminLoginController::login
+
+admin_logout:
+    path: /admin/logout
+    controller: App\Controller\Admin\AdminLoginController::logout

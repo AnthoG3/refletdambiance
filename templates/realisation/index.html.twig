@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réalisations{% endblock %}
+
+{% block body %}
+    <style>
+        .realisations-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .realisations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Espace entre les images */
+            justify-content: center; /* Centre les images */
+        }
+        .realisation-item {
+            flex: 0 0 calc(33.333% - 20px); /* Trois images par ligne */
+            max-width: calc(33.333% - 20px);
+            list-style-type: none; /* Enlève les puces de la liste */
+            position: relative; /* Nécessaire pour le positionnement du voile */
+        }
+        .realisation-item img {
+            width: 100%; /* L'image prend toute la largeur de son conteneur */
+            height: auto; /* Conserve le ratio d'aspect */
+            object-fit: cover; /* Couvre l'espace tout en gardant le ratio d'aspect */
+            aspect-ratio: 16 / 9; /* Ratio d'aspect pour les images */
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Voile semi-transparent noir */
+            color: white; /* Couleur du texte */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0; /* Invisible par défaut */
+            transition: opacity 0.3s ease; /* Transition douce pour l'apparition */
+        }
+        .realisation-item:hover .overlay {
+            opacity: 1; /* Affiche le voile au survol */
+        }
+        @media (max-width: 768px) {
+            .realisation-item {
+                flex: 0 0 calc(50% - 10px); /* Deux images par ligne sur écrans moyens */
+                max-width: calc(50% - 10px);
+            }
+        }
+        @media (max-width: 480px) {
+            .realisation-item {
+                flex: 0 0 100%; /* Une image par ligne sur petits écrans */
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    <div class="realisations-wrapper">
+        <h1>Les réalisations</h1>
+
+        <ul class="realisations-grid">
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+            <li class="realisation-item">
+                <img src="https://www.leparisien.fr/resizer/XEtkllOP69v9JTN3zmcPCA2iFlA=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/lpguideshopping/WVEBLSJVIMDGHKFBH6EW6WFXMU.jpg" alt="déco">
+                <div class="overlay">Image</div>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

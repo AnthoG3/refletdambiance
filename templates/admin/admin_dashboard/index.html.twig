@@ -1,0 +1,43 @@
+{% extends '../../base.html.twig' %}
+
+{% block metatitle %}Tableau de bord | Reflet d'ambiance{% endblock %}
+
+{% block body %}
+    <h1>Tableau de bord</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Contenue</th>
+                <th>Créer le</th>
+                <th>Modifié le</th>
+                <th>Publié</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_dashboard in admin_dashboards %}
+            <tr>
+                <td>{{ admin_dashboard.id }}</td>
+                <td>{{ admin_dashboard.title }}</td>
+                <td>{{ admin_dashboard.content }}</td>
+                <td>{{ admin_dashboard.createdAt ? admin_dashboard.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ admin_dashboard.updatedAt ? admin_dashboard.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ admin_dashboard.isPublished ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_dashboard_show', {'id': admin_dashboard.id}) }}">Voir</a>
+                    <a href="{{ path('app_admin_dashboard_edit', {'id': admin_dashboard.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucune information disponibles</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_dashboard_new') }}">Créer</a>
+{% endblock %}

@@ -29,6 +29,12 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $habitation = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $foyer = null;
+
+    #[ORM\Column(type: "json", nullable: true)]
+    private ?array $styles = null;
+
     #[ORM\Column(type: "text")]
     private ?string $message = null;
 
@@ -89,6 +95,49 @@ class Contact
     public function setHabitation(string $habitation): self
     {
         $this->habitation = $habitation;
+        return $this;
+    }
+
+    public function getFoyer(): ?string
+    {
+        return $this->foyer;
+    }
+
+    public function setFoyer(string $foyer): self
+    {
+        $this->foyer = $foyer;
+        return $this;
+    }
+
+    public function getStyles(): ?array
+    {
+        return $this->styles;
+    }
+
+    public function setStyles(?array $styles): self
+    {
+        $this->styles = $styles;
+        return $this;
+    }
+
+    public function addStyle(string $style): self
+    {
+        if (!is_array($this->styles)) {
+            $this->styles = [];
+        }
+        if (!in_array($style, $this->styles)) {
+            $this->styles[] = $style;
+        }
+        return $this;
+    }
+
+    public function removeStyle(string $style): self
+    {
+        if (is_array($this->styles)) {
+            $this->styles = array_filter($this->styles, function($s) use ($style) {
+                return $s !== $style;
+            });
+        }
         return $this;
     }
 

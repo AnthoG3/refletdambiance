@@ -12,6 +12,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -56,17 +59,13 @@
                     <li class="nav-item"><a class="nav-link" href="{{ path('app_realisation') }}">Réalisations</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('app_inspiration') }}">Inspirations</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('app_formule') }}">Formules</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_user') }}">Connexion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('home') }}#contact">Contact</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="{{ path('admin_login') }}">Connexion</a></li>
                     <li class="nav-item">
-                        <a href="https://www.instagram.com/votre_compte_instagram" target="_blank" class="nav-link">
+                        <a href="https://www.instagram.com/refletdambiance/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" target="_blank" class="nav-link">
                             <img class="nav-icon" src="{{ asset('assets/image/instagram.png') }}" alt="instagram" aria-hidden="true">
                             <span class="visually-hidden">Instagram</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.facebook.com/votre_page_facebook" target="_blank" class="nav-link">
-                            <img class="nav-icon" src="{{ asset('assets/image/facebook.png') }}" alt="facebook" aria-hidden="true">
-                            <span class="visually-hidden">Facebook</span>
                         </a>
                     </li>
                 </ul>

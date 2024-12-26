@@ -1,0 +1,13 @@
+{% extends '../../base.html.twig' %}
+
+{% block title %}Edit AdminDashboard{% endblock %}
+
+{% block body %}
+    <h1>Edit AdminDashboard</h1>
+
+    {{ include('admin_dashboard/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_admin_dashboard_index') }}">Retour</a>
+
+    {{ include('admin_dashboard/_delete_form.html.twig') }}
+{% endblock %}

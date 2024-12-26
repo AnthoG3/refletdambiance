@@ -12,7 +12,6 @@ class RealisationController extends AbstractController
     public function index(): Response
     {
         return $this->render('realisation/index.html.twig', [
-            'controller_name' => 'RealisationController',
         ]);
     }
 }

@@ -14,5 +14,6 @@ class InspirationController extends AbstractController
         return $this->render('inspiration/index.html.twig', [
             'controller_name' => 'InspirationController',
         ]);
+
     }
 }
